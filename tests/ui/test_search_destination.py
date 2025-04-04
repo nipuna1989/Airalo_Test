@@ -6,6 +6,7 @@ from data.test_data import TEST_DATA
 
 def test_search_destination(page):
     """
+    IMPORTANT: This test script has been created specifically for testing the functionality with the Euro currency.
     Test to search for a destination in the search box and verify navigation to the correct page.
     """
     destination = TEST_DATA["search_destination"]

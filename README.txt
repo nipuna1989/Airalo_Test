@@ -1,5 +1,6 @@
 Airalo Test Automation Framework
 ================================
+**This test suite has been created specifically for testing with the Euro currency.**
 
 This is a combined UI and API test automation framework built using:
 - Playwright (for UI)
@@ -8,32 +9,55 @@ This is a combined UI and API test automation framework built using:
 - Requests (for API)
 - dotenv (for secrets management)
 
-It follows the Page Object Model (POM) for UI tests, and uses modular, maintainable test utilities for API testing. Includes logging, test data separation, and HTML reporting.
+It follows the Page Object Model (POM) for UI tests, and uses maintainable test utilities for API testing. Includes logging, test data separation, and HTML reporting.
 
 --------------------------------------
 SETUP INSTRUCTIONS
 --------------------------------------
 
-1. Create Virtual Environment:
+1. Download the Project
+
+   Clone the repository from GitHub:
+
+   https://github.com/nipuna1989/Airalo_Test_Project.git
+
+2. Go Inside the Project Folder
+
+   example - cd C:\Airalo_Test_Project
+
+3. Create a Virtual Environment
 
    python -m venv venv
 
-   On Windows:    venv\Scripts\activate
-   On Mac/Linux:  source venv/bin/activate
+   On Windows:
+       venv\Scripts\activate
 
-2. Install Required Packages:
+   On Mac/Linux:
+       source venv/bin/activate
+
+4. Install Required Packages
 
    pip install -r requirements.txt
 
-3. Install Playwright Browsers (for UI tests only):
+5. Install Playwright Browsers (for UI tests only)
 
    playwright install
 
-4. Set up Environment Variables:
+6. Set up Environment Variables
 
-   Copy `.env.example` to `.env` and fill in your credentials:
+    How to Use It:
 
-   cp .env.example .env
+   - Copy the example file:
+     On Mac/Linux:
+       cp .env.example .env
+
+     On Windows (Command Prompt):
+       copy .env.example .env
+
+  - Fill in your actual credentials in `.env`:
+     CLIENT_ID=your_real_client_id_here
+     CLIENT_SECRET=your_real_secret_here
+
 
 --------------------------------------
 RUNNING TESTS
@@ -103,35 +127,13 @@ Airalo_Test_Project/
 
 
 --------------------------------------
-ENVIRONMENT VARIABLES (.env)
---------------------------------------
-
-This project uses a `.env` file to manage sensitive credentials like API keys.
-**Do not commit this file.**
-
-A sample file is included as `.env.example`.
-
-How to Use It:
-
-1. Copy the example file:
-   cp .env.example .env
-
-2. Fill in your actual credentials in `.env`:
-
-   CLIENT_ID=your_real_client_id_here
-   CLIENT_SECRET=your_real_secret_here
-
-3. `.env` is already added to `.gitignore`, so it will be excluded from version control.
-
-
---------------------------------------
 NOTES
 --------------------------------------
 
 - Python version required: 3.11 or higher
-- Internet connection is required for live tests
 - All secrets and keys are handled via .env and loaded with python-dotenv
 - Logs are written to disk per session using the custom logger in /utils
+- HTML reports are generated using pytest-html
 
 --------------------------------------
 CONTACT
