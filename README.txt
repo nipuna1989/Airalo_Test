@@ -73,7 +73,7 @@ To run only API tests:
    pytest tests/api/ -s
 
 To run a specific test:
-   pytest tests/api/test_esim_flow.py::test_create_order -s
+   pytest tests/api/test_get_esim_list.py::test_verify_esims -s
 
 To generate an HTML report:
    pytest -s --html=reports/report.html --self-contained-html
