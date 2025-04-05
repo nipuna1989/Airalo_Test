@@ -11,8 +11,7 @@ def get_access_token():
         HTTPError: If the response status is not successful.
         ValueError: If the access token is missing from the response.
 
-    Returns:
-        str: The access token for authenticated API requests.
+    :return: str: The access token for API authentication.
     """
     # Prepare the payload for the token request using the client ID and secret
     payload = get_token_payload(CLIENT_ID, CLIENT_SECRET)

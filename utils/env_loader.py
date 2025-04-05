@@ -4,9 +4,9 @@ from dotenv import load_dotenv
 
 def load_env_variables():
     """
-        Loads environment variables from a .env file located in the project root directory.
+    Loads environment variables from a .env file located in the project root directory.
 
-        :raises FileNotFoundError: If the .env file does not exist in the project root.
+    :raises FileNotFoundError: If the .env file does not exist in the project root.
     """
     # Define the path to the .env file (located in the project root)
     env_path = Path(__file__).resolve().parent.parent / '.env'
