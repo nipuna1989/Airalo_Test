@@ -91,7 +91,10 @@ Airalo_Test_Project/
 │   ├── constant_data.py        -> Shared constants
 │   ├── api_test_data.py        -> API-specific test inputs
 │   ├── ui_test_data.json       -> UI test datasets
-│   └── load_test_data.py        -> Optional structured test data helper
+│   ├── load_test_data.py       -> Optional structured test data helper
+│   └── schema/
+│       ├── get_esim_list_schema_json
+│       └── submit_order_schema.json
 │
 ├── pages/                      -> Page Object Model (UI)
 │   ├── base_page.py
@@ -106,7 +109,7 @@ Airalo_Test_Project/
 ├── tests/
 │   ├── api/
 │   │   ├── test_order_flow.py  -> Submitting order tests
-│   │   ├── test_esim_fetch.py  -> Fetching and verifying eSIM data│   │
+│   │   ├── test_esim_fetch.py  -> Fetching and verifying eSIM data
 │   │
 │   └── ui/
 │       ├── test_search_destination.py -> UI destination search test
@@ -116,9 +119,10 @@ Airalo_Test_Project/
 │   ├── get_token.py
 │   ├── payload_factory.py
 │   ├── env_loader.py
+│   ├── schema_loader.py        -> Loads and validates schemas
 │   └── __init__.py
 │
-├── .env                        -> Local secrets (never committed)
+├── .env                        -> Local secrets
 ├── .env.example                -> Sample env file to copy from
 ├── .gitignore                  -> Ignore rules for Git
 ├── conftest.py                 -> Shared fixtures
