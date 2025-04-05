@@ -120,7 +120,7 @@ Airalo_Test_Project/
 │       ├── test_search_destination.py -> UI destination search test
 │
 ├── utils/                        -> Helper and utility scripts
-│   ├── __init__.py              
+│   ├── __init__.py
 │   ├── logger.py
 │   ├── api_utils.py
 │   ├── load_env_variables.py
