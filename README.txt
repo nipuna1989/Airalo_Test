@@ -88,46 +88,51 @@ PROJECT STRUCTURE
 Airalo_Test_Project/
 │
 ├── data/
-│   ├── constant_data.py        -> Shared constants
-│   ├── api_test_data.py        -> API-specific test inputs
-│   ├── ui_test_data.json       -> UI test datasets
-│   ├── load_test_data.py       -> Optional structured test data helper
+│   ├── __init__.py
+│   ├── constant_data.py          # Shared constants
+│   ├── api_test_data.py          # API-specific test inputs
+│   ├── ui_test_data.json         # UI test datasets
+│   ├── load_test_data.py         # Optional structured test data helper
 │   └── schema/
+│       ├── __init__.py
 │       ├── get_esim_list_schema_json
 │       └── submit_order_schema.json
 │
-├── pages/                      -> Page Object Model (UI)
+├── pages/                        # Page Object Model (UI)
+│   ├── __init__.py
 │   ├── base_page.py
 │   ├── home_page.py
 │   ├── esim_selection_page.py
 │   └── package_details_popup.py
 │
-├── reports/                    -> Generated HTML reports
+├── reports/                      -> Generated HTML reports
 │
-├── test-logs/                  -> Log files per test session
+├── test-logs/                    -> Log files per test session
 │
 ├── tests/
 │   ├── api/
-│   │   ├── test_order_flow.py  -> Submitting order tests
-│   │   ├── test_esim_fetch.py  -> Fetching and verifying eSIM data
+│   │   ├── __init__.py
+│   │   ├── test_order_flow.py    -> Submitting order tests
+│   │   ├── test_esim_fetch.py    -> Fetching and verifying eSIM data
 │   │
 │   └── ui/
+│       ├── __init__.py
 │       ├── test_search_destination.py -> UI destination search test
 │
-├── utils/                      -> Helper and utility scripts
+├── utils/                        -> Helper and utility scripts
+│   ├── __init__.py              
 │   ├── logger.py
-│   ├── get_token.py
-│   ├── payload_factory.py
-│   ├── env_loader.py
-│   ├── schema_loader.py        -> Loads and validates schemas
+│   ├── api_utils.py
+│   ├── load_env_variables.py
 │   └── __init__.py
 │
-├── .env                        -> Local secrets
-├── .env.example                -> Sample env file to copy from
-├── .gitignore                  -> Ignore rules for Git
-├── conftest.py                 -> Shared fixtures
-├── requirements.txt            -> All required dependencies
-└── README.txt                  -> This file
+├── .env                          -> Local secrets
+├── .env.example                  -> Sample env file to copy from
+├── .gitignore                    -> Ignore rules for Git
+├── conftest.py                   -> Shared fixtures
+├── requirements.txt              -> All required dependencies
+└── README.txt                    -> This file
+
 
 
 --------------------------------------
