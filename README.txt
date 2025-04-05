@@ -90,8 +90,8 @@ Airalo_Test_Project/
 ├── data/
 │   ├── constant_data.py        -> Shared constants
 │   ├── api_test_data.py        -> API-specific test inputs
-│   ├── test_data.json          -> UI test datasets
-│   └── test_data.py            -> Optional structured test data helper
+│   ├── ui_test_data.json       -> UI test datasets
+│   └── load_test_data.py        -> Optional structured test data helper
 │
 ├── pages/                      -> Page Object Model (UI)
 │   ├── base_page.py

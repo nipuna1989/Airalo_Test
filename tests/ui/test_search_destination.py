@@ -1,7 +1,7 @@
 from pages.home_page import HomePage
 from pages.esim_selection_page import EsimSelectionPage
 from pages.package_details_popup import PackageDetailsPopup
-from data.test_data import TEST_DATA
+from data.load_test_data import TEST_DATA
 
 
 def test_search_destination(page):
