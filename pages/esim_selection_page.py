@@ -21,6 +21,7 @@ class EsimSelectionPage(BasePage):
         logger.info("Waiting for eSIM packages to be visible...")
         self.wait_for_element(self.esim_packages.first)
 
+        # Check the number of eSIM packages on the page
         count = self.esim_packages.count()
         if count == 0:
             raise ValueError("No eSIM packages found on the page!")
@@ -29,13 +30,12 @@ class EsimSelectionPage(BasePage):
                 f"Requested package index {package_index} is out of range. Only {count} packages available."
             )
 
+        # Select the correct package based on the index
         selected_package = self.esim_packages.nth(package_index - 1)
+
+        # Click the 'Buy Now' button
         buy_now_button = selected_package.locator(
             "div[data-testid='esim-button'] button"
-        )
-
-        logger.info(
-            f"Waiting for 'Buy Now' button in package #{package_index} to be visible..."
         )
         self.wait_for_element(buy_now_button)
         buy_now_button.click()

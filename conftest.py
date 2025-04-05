@@ -11,12 +11,14 @@ from playwright.sync_api import sync_playwright
 
 @pytest.fixture(scope="session")
 def playwright_instance():
+    """ Fixture to initialize Playwright instance for the session."""
     with sync_playwright() as p:
         yield p
 
 
 @pytest.fixture(scope="session")
 def browser(playwright_instance):
+    """ Fixture to launch the browser instance for the session."""
     browser = playwright_instance.chromium.launch(headless=False)
     yield browser
     browser.close()
@@ -24,6 +26,7 @@ def browser(playwright_instance):
 
 @pytest.fixture
 def page(browser):
+    """ Fixture to create a new browser context and page for each test."""
     context = browser.new_context()
     page = context.new_page()
     yield page
@@ -56,9 +59,3 @@ def auth_headers():
         "Authorization": f"Bearer {token}",
         "Accept": "application/json"
     }
-
-
-def pytest_sessionfinish():
-    print("\n" + "="*80)
-    print(f"📂 Logs saved at: {os.path.abspath(log_file_path)}")
-    print("="*80 + "\n")

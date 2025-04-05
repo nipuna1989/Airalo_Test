@@ -1,7 +1,7 @@
-# pages/base_page.py
-
 from urllib.parse import urlparse
+
 from playwright.sync_api import Page
+
 from data.constant_data import DEFAULT_TIMEOUT, URL_TIMEOUT
 from utils.logger import logger
 
@@ -15,8 +15,8 @@ class BasePage:
         Waits for an element to be in a specific state.
 
         :param locator: Playwright Locator object
-        :param state: State to wait for (e.g., 'visible', 'attached')
-        :param timeout: Optional timeout in ms
+        :param state: State to wait for (e.g., 'visible', 'attached'). default is 'visible'
+        :param timeout: Optional timeout in ms. Default is 5 seconds.
         """
         logger.debug(f"Waiting for element to be {state} with timeout {timeout}ms.")
         locator.wait_for(state=state, timeout=timeout)
@@ -26,7 +26,7 @@ class BasePage:
         Waits for the page URL to match the expected path and asserts it's correct.
 
         :param expected_path: Expected URL path (e.g., "/japan-esim")
-        :param timeout: Timeout in ms
+        :param timeout: Timeout in ms. Default is 10 seconds.
         """
         logger.debug(f"Waiting for URL to match path: {expected_path}")
         self.page.wait_for_url(f"**{expected_path}", timeout=timeout)

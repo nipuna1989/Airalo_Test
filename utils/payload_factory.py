@@ -5,14 +5,12 @@ def get_order_payload(package_id=PACKAGE_ID, quantity=ORDER_QUANTITY, order_type
     """
     Generate payload for creating an order.
 
-    Args:
-        package_id (str): ID of the eSIM package.
-        quantity (int): Number of eSIMs to order.
-        order_type (str): Type of order (e.g., 'sim').
-        description (str, optional): Optional custom description.
+    :param package_id: Package ID for the eSIM order.
+    :param quantity: Number of eSIMs to order.
+    :param order_type: Type of order (default is 'sim').
+    :param description: Description for the order (optional).
 
-    Returns:
-        dict: Payload for POST /orders.
+    :return: dict: Payload for POST /order.
     """
     return {
         "quantity": quantity,
@@ -26,13 +24,11 @@ def get_token_payload(client_id, client_secret, grant_type=GRANT_TYPE):
     """
     Generate payload for token request.
 
-    Args:
-        client_id (str): API client ID.
-        client_secret (str): API client secret.
-        grant_type (str): OAuth2 grant type (default: 'client_credentials').
+    :param client_id: Client ID for OAuth2 authentication.
+    :param client_secret: Client secret for OAuth2 authentication.
+    :param grant_type: Grant type for OAuth2 (default is 'client_credentials').
 
-    Returns:
-        dict: Payload for POST /token.
+    :return: dict: Payload for token request.
     """
     return {
         "client_id": client_id,

@@ -1,9 +1,7 @@
-# pages/home_page.py
-
 from playwright.sync_api import Page
+from utils.logger import logger
 from pages.base_page import BasePage
 from data.constant_data import BASE_URL
-from utils.logger import logger
 
 
 class HomePage(BasePage):
@@ -28,14 +26,17 @@ class HomePage(BasePage):
 
         :param destination: Destination name (e.g., 'Japan')
         """
+        # Wait for the search box to be visible and fill in the destination
         logger.info(f"Searching for destination: {destination}")
         self.wait_for_element(self.search_box)
         self.search_box.fill(destination)
         logger.debug(f"Filled search box with: {destination}")
 
+        # Prepare the auto-suggest selector based on the destination
         auto_suggest_selector = self.auto_suggest_pattern.format(destination)
         auto_suggest_option = self.page.locator(auto_suggest_selector)
 
+        # Wait for the auto-suggest option and click if visible
         self.wait_for_element(auto_suggest_option)
         if auto_suggest_option.is_visible():
             auto_suggest_option.click()
@@ -44,5 +45,6 @@ class HomePage(BasePage):
             logger.error(f"Auto-suggest option for '{destination}' not found.")
             return
 
+        # Validate the URL path after clicking the suggestion
         expected_path = f"/{destination.strip().lower()}-esim"
         self.wait_for_url_path_and_validate(expected_path)

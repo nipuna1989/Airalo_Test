@@ -1,5 +1,4 @@
 from playwright.sync_api import Page, expect
-from data.constant_data import DEFAULT_TIMEOUT
 from utils.logger import logger
 from pages.base_page import BasePage
 
@@ -47,6 +46,7 @@ class PackageDetailsPopup(BasePage):
 
         logger.info("Verifying package details...")
 
+        # Check if each displayed package detail matches the expected value
         expect(self.title, "Title mismatch").to_have_text(expected_details["title"])
         expect(self.coverage, "Coverage mismatch").to_have_text(
             expected_details["coverage"]

@@ -9,7 +9,7 @@ from data.load_test_data import TEST_DATA
 def test_search_destination(page, home_page, esim_selection_page, package_details_popup,
                             destination, expected_details, package_index):
     """
-    IMPORTANT: This test script has been created specifically for testing the functionality with the Euro currency.
+    IMPORTANT: This test script has been created specifically for testing the functionality with default Euro currency.
 
     Steps:
     1. Navigate to the Airalo homepage
