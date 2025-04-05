@@ -1,5 +1,5 @@
-from pathlib import Path
 from dotenv import load_dotenv
+from pathlib import Path
 
 
 def load_env_variables():
@@ -17,4 +17,3 @@ def load_env_variables():
 
     # Load the environment variables from the .env file
     load_dotenv(dotenv_path=env_path)
-

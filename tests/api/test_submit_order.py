@@ -1,6 +1,6 @@
 import requests
 from utils.logger import logger
-from utils.payload_factory import get_order_payload
+from utils.api_utils import get_order_payload
 from data.constant_data import ORDER_URL
 from data.api_test_data import (
     PACKAGE_ID,
@@ -10,8 +10,8 @@ from data.api_test_data import (
     INVALID_PACKAGE_ID,
     EXCEEDING_ORDER_QUANTITY,
 )
-from utils.schema_loader import load_schema
-from conftest import validate_response_schema
+from utils.api_utils import load_schema, validate_response_schema
+
 
 
 # Load the schema from the JSON file

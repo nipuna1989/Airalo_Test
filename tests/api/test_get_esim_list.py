@@ -8,8 +8,7 @@ from data.api_test_data import (
     INCORRECT_ESIMS_QUERY_PARAMS,
     INVALID_AUTH_HEADER,
 )
-from utils.schema_loader import load_schema
-from conftest import validate_response_schema
+from utils.api_utils import load_schema, validate_response_schema
 
 # Load the schema from the JSON file
 expected_schema = load_schema("data/schema/get_esim_list_schema.json")

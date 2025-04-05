@@ -1,5 +1,5 @@
 import os
-from utils.env_loader import load_env_variables
+from utils.load_env_variables import load_env_variables
 
 # Load environment variables from .env file
 load_env_variables()
