@@ -9,7 +9,7 @@ def load_env_variables():
     :raises FileNotFoundError: If the .env file does not exist in the project root.
     """
     # Define the path to the .env file (located in the project root)
-    env_path = Path(__file__).resolve().parent.parent / '.env'
+    env_path = Path(__file__).resolve().parent.parent / ".env"
 
     # Check if the .env file exists and raise an error if it doesn't
     if not env_path.exists():

@@ -5,7 +5,12 @@ from data.constant_data import TOKEN_URL, CLIENT_ID, CLIENT_SECRET
 from data.api_test_data import PACKAGE_ID, ORDER_QUANTITY, ORDER_TYPE, GRANT_TYPE
 
 
-def get_order_payload(package_id=PACKAGE_ID, quantity=ORDER_QUANTITY, order_type=ORDER_TYPE, description=None):
+def get_order_payload(
+    package_id=PACKAGE_ID,
+    quantity=ORDER_QUANTITY,
+    order_type=ORDER_TYPE,
+    description=None,
+):
     """
     Generate payload for creating an order.
 
@@ -20,7 +25,7 @@ def get_order_payload(package_id=PACKAGE_ID, quantity=ORDER_QUANTITY, order_type
         "quantity": quantity,
         "package_id": package_id,
         "description": description or f"{quantity} sim {package_id}",
-        "type": order_type
+        "type": order_type,
     }
 
 
@@ -37,7 +42,7 @@ def get_token_payload(client_id, client_secret, grant_type=GRANT_TYPE):
     return {
         "client_id": client_id,
         "client_secret": client_secret,
-        "grant_type": grant_type
+        "grant_type": grant_type,
     }
 
 
