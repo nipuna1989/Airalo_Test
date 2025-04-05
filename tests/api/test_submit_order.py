@@ -13,7 +13,6 @@ from data.api_test_data import (
 from utils.api_utils import load_schema, validate_response_schema
 
 
-
 # Load the schema from the JSON file
 expected_schema = load_schema("data/schema/submit_order_schema.json")
 
