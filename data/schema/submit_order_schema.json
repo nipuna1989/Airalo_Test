@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "object",
+      "required": [
+        "id", "code", "currency", "package_id", "quantity", "type",
+        "description", "esim_type", "validity", "package", "data",
+        "price", "created_at", "manual_installation", "qrcode_installation",
+        "installation_guides", "net_price", "sims"
+      ],
+      "properties": {
+        "id": {"type": "integer"},
+        "code": {"type": "string"},
+        "currency": {"type": "string"},
+        "package_id": {"type": "string"},
+        "quantity": {"type": "integer"},
+        "type": {"type": "string"},
+        "description": {"type": "string"},
+        "esim_type": {"type": "string"},
+        "validity": {"type": "integer"},
+        "package": {"type": "string"},
+        "data": {"type": "string"},
+        "price": {"type": "number"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "manual_installation": {"type": "string"},
+        "qrcode_installation": {"type": "string"},
+        "installation_guides": {
+          "type": "object",
+          "additionalProperties": {"type": "string"}
+        },
+        "text": {"type": ["string", "null"]},
+        "voice": {"type": ["string", "null"]},
+        "net_price": {"type": "number"},
+        "brand_settings_name": {"type": ["string", "null"]},
+        "sims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id", "created_at", "iccid", "lpa", "matching_id", "qrcode",
+              "qrcode_url", "apn_type", "apn_value", "is_roaming", "apn",
+              "direct_apple_installation_url"
+            ],
+            "properties": {
+              "id": {"type": "integer"},
+              "created_at": {"type": "string", "format": "date-time"},
+              "iccid": {"type": "string"},
+              "lpa": {"type": "string"},
+              "imsis": {"type": ["array", "null"]},
+              "matching_id": {"type": "string"},
+              "qrcode": {"type": "string"},
+              "qrcode_url": {"type": "string"},
+              "airalo_code": {"type": ["string", "null"]},
+              "apn_type": {"type": "string"},
+              "apn_value": {"type": "string"},
+              "is_roaming": {"type": "boolean"},
+              "confirmation_code": {"type": ["string", "null"]},
+              "apn": {
+                "type": "object",
+                "required": ["ios", "android"],
+                "properties": {
+                  "ios": {
+                    "type": "object",
+                    "required": ["apn_type", "apn_value"],
+                    "properties": {
+                      "apn_type": {"type": "string"},
+                      "apn_value": {"type": "string"}
+                    }
+                  },
+                  "android": {
+                    "type": "object",
+                    "required": ["apn_type", "apn_value"],
+                    "properties": {
+                      "apn_type": {"type": "string"},
+                      "apn_value": {"type": "string"}
+                    }
+                  }
+                }
+              },
+              "msisdn": {"type": ["string", "null"]},
+              "direct_apple_installation_url": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

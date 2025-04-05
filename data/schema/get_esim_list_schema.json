@@ -1,0 +1,116 @@
+{
+    "type": "object",
+    "required": ["data"],
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id", "created_at", "iccid", "lpa", "matching_id", "qrcode",
+                    "qrcode_url", "direct_apple_installation_url", "apn_type",
+                    "is_roaming", "simable", "apn"
+                ],
+                "properties": {
+                    "id": {"type": "integer"},
+                    "created_at": {"type": "string", "format": "date-time"},
+                    "iccid": {"type": "string"},
+                    "lpa": {"type": "string"},
+                    "imsis": {"type": ["array", "null"]},
+                    "matching_id": {"type": "string"},
+                    "confirmation_code": {"type": ["string", "null"]},
+                    "qrcode": {"type": "string"},
+                    "qrcode_url": {"type": "string", "format": "uri"},
+                    "direct_apple_installation_url": {"type": "string", "format": "uri"},
+                    "voucher_code": {"type": ["string", "null"]},
+                    "airalo_code": {"type": ["string", "null"]},
+                    "apn_type": {"type": "string", "enum": ["automatic", "manual"]},
+                    "apn_value": {"type": ["string", "null"]},
+                    "is_roaming": {"type": "boolean"},
+                    "brand_settings_name": {"type": ["string", "null"]},
+                    "msisdn": {"type": ["string", "null"]},
+                    "apn": {
+                        "type": "object",
+                        "required": ["ios", "android"],
+                        "properties": {
+                            "ios": {
+                                "type": "object",
+                                "required": ["apn_type", "apn_value"],
+                                "properties": {
+                                    "apn_type": {"type": "string", "enum": ["automatic", "manual"]},
+                                    "apn_value": {"type": ["string", "null"]}
+                                }
+                            },
+                            "android": {
+                                "type": "object",
+                                "required": ["apn_type", "apn_value"],
+                                "properties": {
+                                    "apn_type": {"type": "string", "enum": ["automatic", "manual"]},
+                                    "apn_value": {"type": ["string", "null"]}
+                                }
+                            }
+                        }
+                    },
+                    "simable": {
+                        "type": "object",
+                        "required": [
+                            "id", "code", "package_id", "currency", "quantity", "type",
+                            "esim_type", "validity", "package", "data", "price", "created_at",
+                            "manual_installation", "qrcode_installation", "installation_guides",
+                            "net_price"
+                        ],
+                        "properties": {
+                            "id": {"type": "integer"},
+                            "code": {"type": "string", "pattern": "^\\d{8}-\\d{6}$"},
+                            "package_id": {"type": "string"},
+                            "currency": {"type": "string", "minLength": 3, "maxLength": 3},
+                            "quantity": {"type": "integer", "minimum": 1},
+                            "type": {"type": "string"},
+                            "description": {"type": ["string", "null"]},
+                            "esim_type": {"type": "string"},
+                            "validity": {"type": "string"},
+                            "package": {"type": "string"},
+                            "data": {"type": "string"},
+                            "price": {"type": "string"},
+                            "created_at": {"type": "string", "format": "date-time"},
+                            "manual_installation": {"type": "string"},
+                            "qrcode_installation": {"type": "string"},
+                            "installation_guides": {
+                                "type": "object",
+                                "properties": {
+                                    "en": {"type": "string", "format": "uri"}
+                                },
+                                "required": ["en"]
+                            },
+                            "text": {"type": ["string", "null"]},
+                            "voice": {"type": ["string", "null"]},
+                            "net_price": {"type": "number"}
+                        }
+                    }
+                }
+            }
+        },
+        "links": {
+            "type": "object",
+            "properties": {
+                "first": {"type": "string", "format": "uri"},
+                "last": {"type": "string", "format": "uri"},
+                "prev": {"type": ["string", "null"], "format": "uri-reference"},
+                "next": {"type": ["string", "null"], "format": "uri-reference"}
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "message": {"type": "string"},
+                "current_page": {"type": "integer", "minimum": 1},
+                "from": {"type": "integer", "minimum": 1},
+                "last_page": {"type": "integer", "minimum": 1},
+                "path": {"type": "string", "format": "uri"},
+                "per_page": {"type": "string", "pattern": "^\\d+$"},
+                "to": {"type": "integer", "minimum": 1},
+                "total": {"type": "integer", "minimum": 0}
+            }
+        }
+    }
+}

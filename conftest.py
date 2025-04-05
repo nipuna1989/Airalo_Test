@@ -1,10 +1,9 @@
 import pytest
-import os
+from jsonschema import validate, ValidationError
 
 from pages.esim_selection_page import EsimSelectionPage
 from pages.home_page import HomePage
 from pages.package_details_popup import PackageDetailsPopup
-from utils.logger import log_file_path
 from utils.get_token import get_access_token
 from playwright.sync_api import sync_playwright
 
@@ -59,3 +58,24 @@ def auth_headers():
         "Authorization": f"Bearer {token}",
         "Accept": "application/json"
     }
+
+
+def validate_response_schema(resp_json, expected_schema, logger):
+    """
+    Validates a given response JSON against the expected schema.
+
+    :param resp_json: The JSON response to validate.
+    :param expected_schema: The schema to validate against.
+    :param logger: Logger instance for logging validation results.
+
+    :raises ValidationError: If the response does not match the schema.
+    """
+    try:
+        validate(instance=resp_json, schema=expected_schema)
+        logger.info("Response matches the expected schema.")
+    except ValidationError as e:
+        logger.error(f"Response does not match schema: {e.message}")
+        logger.error(f"Error at path: {e.path}")
+        logger.error(f"Invalid value: {e.instance}")
+
+        raise
