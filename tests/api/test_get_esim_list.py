@@ -36,7 +36,7 @@ def test_verify_esims(auth_headers):
     validate_response_schema(resp_json, expected_schema, logger)
 
     # 5. Extract the 'data' field containing eSIMs and filter by package_id
-    esims = response.json().get("data", [])
+    esims = resp_json.get("data", [])
     matching_esims = [
         esim
         for esim in esims
