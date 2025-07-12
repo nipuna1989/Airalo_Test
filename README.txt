@@ -1,4 +1,4 @@
-Airalo Test Automation Framework
+Playwright Test Automation Framework
 ================================
 **This test suite has been created specifically for testing with the Euro currency.**
 
@@ -19,7 +19,7 @@ SETUP INSTRUCTIONS
 
    Clone the repository from GitHub:
 
-   https://github.com/nipuna1989/Airalo_Test_Project.git
+   https://github.com/nipuna1989/Playwright_Test_Framework.git
 
 2. Go Inside the Project Folder
 
